@@ -1,10 +1,74 @@
+.main-bike-container {
+  height: 100vh;
+  width: 100vw;
+  position: relative;
+}
+
 .header-container {
-  height: 300px;
-  width: 300px;
-  background-color: red;
+  height: 100px;
+  width: 100%;
+  background-color: #d9d9d9;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
 }
 
 .type-selector-container {
   width: 100%;
-  height: 30%;
+  height: 150px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-type-selector-container {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: row;
+  margin-left: 15px;
+  width: 100%;
+}
+
+.header-img-container {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+  margin-right: 27px;
+}
+
+.header-img-container > img {
+  height: 100%;
+  width: 100%;
+}
+
+.header-text-container {
+  margin-left: 15px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: flex-start;
+  flex-direction: column;
+}
+
+.header-text-container > p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23.44px;
+}
+
+.header-text-container > h1 {
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 35.16px;
+}
+
+.inner-bike-card-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
 }

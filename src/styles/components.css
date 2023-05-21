@@ -1,5 +1,58 @@
-.card-container {
-  height: 100px;
-  width: 60px;
+
+/* CARD */
+
+.main-card-container {
+  height: 180px;
+  width: 40%;
   position: relative;
+  margin: 10px;
+}
+
+.inner-card-container {
+  height: 167px;
+  width: 149px;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 20px;
+  border: 1px solid rgb(173, 173, 173);
+}
+
+.inner-card-container > img {
+  z-index: -1;
+}
+.inner-card-container > span {
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+.inner-card-container > p {
+  position: absolute;
+  top: 30%;
+  left: 30%;
+  color: rgb(254, 37, 247);
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 23.44px;
+}
+
+/* CHIP */
+
+.main-chip-container {
+  width: 100px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inner-chip-container {
+  height: 45px;
+  width: 89px;
+  background-color: grey;
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
