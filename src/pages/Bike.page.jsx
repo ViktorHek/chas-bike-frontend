@@ -21,6 +21,7 @@ function Bike() {
 
   function handlePreviewClick() {
     console.log("clicking on preview");
+    setBikePreView(0);
   }
 
   return (
@@ -37,7 +38,7 @@ function Bike() {
       <div className="type-selector-container">
         <div className="inner-type-selector-container">
           {types.map((el) => {
-            return <Chip bike={el} key={el} />;
+            return <Chip text={el} key={el} />;
           })}
         </div>
       </div>
@@ -49,7 +50,7 @@ function Bike() {
         </div>
       </div>
       {bikePreView !== 0 ? (
-        <BikePreView bike={bikes[bikePreView]} handleClick={handlePreviewClick} />
+        <BikePreView bike={bikes[bikePreView-1]} handleClick={handlePreviewClick} />
       ) : null}
     </div>
   );

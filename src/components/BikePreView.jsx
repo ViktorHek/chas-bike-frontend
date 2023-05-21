@@ -1,12 +1,11 @@
 import "../styles/components.css";
 
 function BikePreView({bike, handleClick}) {
-  console.log('in preview', bike)
   const bikeImg =
     "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRCaFa5S5I_ZGML8N7JSAa3EJsm7yU4r8w3Gw&usqp=CAU";
 
   function handleSelect() {
-    return handleClick(bike.id)
+    return handleClick()
   }
 
   return (
