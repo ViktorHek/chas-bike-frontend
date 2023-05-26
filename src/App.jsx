@@ -1,5 +1,5 @@
 import { HashRouter, Link, Route, Routes } from "react-router-dom";
-import Index from "./pages/Index.page";
+import Home from "./pages/Home.page";
 import NotFound from "./pages/NotFound.page";
 import Bike from "./pages/Bike.page";
 import Map from "./pages/Map.page";
@@ -12,7 +12,7 @@ function App() {
   return (
     <HashRouter>
       <Routes>
-        <Route path="/" element={<Index />} />
+        <Route path="/" element={<Home />} />
         <Route path="/bike" element={<Bike />} />
         <Route path="/map" element={<Map />} />
         <Route path="/card" element={<Card />} />
