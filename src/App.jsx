@@ -7,6 +7,9 @@ import Card from "./pages/Card.page";
 import Account from "./pages/Account.page";
 import Social from "./pages/Social.page";
 import Icons from "./assets/Icons";
+import axios from "axios";
+
+axios.defaults.baseURL = "http://localhost:3000"
 
 function App() {
   return (

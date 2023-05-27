@@ -40,3 +40,11 @@
   justify-content: space-between;
   align-items: center;
 }
+
+.close-modal-button {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  font-size: large;
+  font-weight: bold;
+}

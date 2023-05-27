@@ -1,6 +1,8 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import axios from "axios";
 import Button from "../components/Button";
+import global from "../global";
 import "../styles/home.css";
 
 function Home() {
@@ -19,7 +21,7 @@ function Home() {
     console.log("clicking register");
   }
 
-  function handleSubmitRegistration(event) {
+  const handleSubmitRegistration = async (event) => {
     event.preventDefault();
     if(!event.target[0].value || !event.target[1].value || !event.target[2].value) {
       alert('missing something')
@@ -30,12 +32,23 @@ function Home() {
       userName: event.target[1].value,
       password: event.target[2].value
     }
-    console.log({payload});
+    let result = await axios.put('/register', {payload})
+    console.log({result});
   }
 
-  function handleSubmitLogin(event) {
+  const handleSubmitLogin = async (event) => {
     event.preventDefault();
-    console.log("logi: ", event);
+    if(!event.target[0].value || !event.target[1].value) {
+      alert('missing something')
+      return 
+    }
+    const payload = {
+      userName: event.target[0].value,
+      password: event.target[1].value
+    }
+    let result = await axios.post('/login', {payload})
+
+    console.log("logi: ", result);
   }
 
   return (
@@ -62,6 +75,7 @@ function Home() {
       </div>
       {openRegister && (
         <div className="main-register-container">
+          <span className="close-modal-button" onClick={() => setOpenRegister(!openRegister)}>x</span>
           <form onSubmit={(event) => handleSubmitRegistration(event)}>
             <div className="email-input-container">
               <label>
@@ -87,7 +101,8 @@ function Home() {
       )}
       {openLogin && (
         <div className="main-login-container">
-          <form onSubmit={handleSubmitLogin(event)}>
+          <span className="close-modal-button" onClick={() => setOpenLogin(!openLogin)}>x</span>
+          <form onSubmit={(event) => handleSubmitLogin(event)}>
             <div className="name-input-container">
               <label>
                 User Name:
