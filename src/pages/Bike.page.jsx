@@ -1,27 +1,42 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import global from "../global";
 import "../styles/bike.css";
 import Chip from "../components/Chip";
 import Card from "../components/Card";
 import BikePreView from "../components/BikePreView";
+import axios from "axios";
 
 function Bike() {
-  const [bikePreView, setBikePreView] = useState(0);
+  const [bikePreView, setBikePreView] = useState(null);
+  const [bikes, setBikes] = useState([]);
+  const [categorys, setCategorys] = useState([]);
   const types = ["tour", "city", "hybrid", "Trailor"];
-  const bikes = [
-    { id: 1, title: "boss Bike" },
-    { id: 2, title: "Cool Bike" },
-    { id: 3, title: "SXXB 900" },
-    { id: 4, title: "Bikeenator" },
-  ];
 
-  function handleCardClick(el) {
-    setBikePreView(el);
+  useEffect(() => {
+    populateBikes();
+  }, []);
+
+  const populateBikes = async () => {
+    let responce = await axios.get("/bikes/all");
+    let bikes = responce.data.bikes
+    setBikes(bikes)
+    let categorys = bikes.map((el) => {return el.category})
+    let uniqueCategorys = categorys.filter((value, index, array) => array.indexOf(value) === index)
+    setCategorys(uniqueCategorys)
+  };
+
+  function handleCardClick(id) {
+    let selectedBike = bikes.filter((el) => el.id === id)
+    setBikePreView(selectedBike[0]);
   }
 
-  function handlePreviewClick() {
+  function handlePreviewClick(bike) {
     console.log("clicking on preview");
-    setBikePreView(0);
+    setBikePreView(null);
+  }
+
+  function handleChipClick() {
+    console.log('hello')
   }
 
   return (
@@ -37,20 +52,21 @@ function Bike() {
       </div>
       <div className="type-selector-container">
         <div className="inner-type-selector-container">
-          {types.map((el) => {
-            return <Chip text={el} key={el} />;
+          {categorys.length && categorys.map((el) => {
+            return <Chip text={el} key={el} onClick={() => handleChipClick()} />;
           })}
         </div>
       </div>
       <div className="bike-card-container">
         <div className="inner-bike-card-container">
-          {bikes.map((el) => {
-            return <Card bike={el} key={el.id} handleClick={handleCardClick} />;
-          })}
+          {bikes.length &&
+            bikes.map((el) => {
+              return <Card bike={el} key={el.id} handleClick={handleCardClick} />;
+            })}
         </div>
       </div>
-      {bikePreView !== 0 ? (
-        <BikePreView bike={bikes[bikePreView-1]} handleClick={handlePreviewClick} />
+      {bikePreView ? (
+        <BikePreView bike={bikePreView} handleClick={handlePreviewClick} />
       ) : null}
     </div>
   );

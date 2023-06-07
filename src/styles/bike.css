@@ -27,11 +27,12 @@
 
 .inner-type-selector-container {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: flex-start;
   align-items: center;
   flex-direction: row;
-  margin-left: 15px;
+  margin: 0px 15px;
   width: 100%;
+  overflow-x: scroll;
 }
 
 .header-img-container {
@@ -67,9 +68,15 @@
   line-height: 35.16px;
 }
 
+.bike-card-container {
+  height: 60%;
+}
+
 .inner-bike-card-container {
   display: flex;
   justify-content: center;
   align-items: center;
   flex-wrap: wrap;
+  height: 100%;
+  overflow-y: scroll;
 }
