@@ -1,6 +1,6 @@
 import { useState } from "react";
 import "../styles/map.css";
-import Icons from "../assets/Icons";
+import Icons from "../components/Icons";
 
 function Map() {
   const [selectedRoute, setSelectedRoute] = useState(null);

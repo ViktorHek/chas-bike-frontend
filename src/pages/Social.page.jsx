@@ -1,4 +1,4 @@
-import Icons from "../assets/Icons";
+import Icons from "../components/Icons";
 import "../styles/social.css";
 
 function Social() {

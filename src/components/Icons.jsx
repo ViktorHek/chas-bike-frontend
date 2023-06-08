@@ -6,8 +6,8 @@ function Icons(icon) {
     case "bike":
       return (
         <svg
-          width="29"
-          height="21"
+          width="25"
+          height="25"
           viewBox="0 0 29 21"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -23,8 +23,8 @@ function Icons(icon) {
     case "hollowBike":
       return (
         <svg
-          width="24"
-          height="17"
+          width="25"
+          height="25"
           viewBox="0 0 24 17"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -40,8 +40,8 @@ function Icons(icon) {
     case "userBox":
       return (
         <svg
-          width="30"
-          height="30"
+          width="25"
+          height="25"
           viewBox="0 0 30 30"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -67,7 +67,7 @@ function Icons(icon) {
       return (
         <svg
           width="25"
-          height="20"
+          height="25"
           viewBox="0 0 25 20"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -81,8 +81,8 @@ function Icons(icon) {
     case "map":
       return (
         <svg
-          width="27"
-          height="27"
+          width="25"
+          height="25"
           viewBox="0 0 27 27"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -106,8 +106,8 @@ function Icons(icon) {
     case "comment":
       return (
         <svg
-          width="24"
-          height="24"
+          width="25"
+          height="25"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -127,8 +127,8 @@ function Icons(icon) {
     case "clock":
       return (
         <svg
-          width="24"
-          height="24"
+          width="25"
+          height="25"
           viewBox="0 0 24 24"
           fill="none"
           xmlns="http://www.w3.org/2000/svg">
@@ -138,6 +138,72 @@ function Icons(icon) {
             stroke="#222222"
             strokeLinecap="round"
           />
+        </svg>
+      );
+    case "user":
+      return (
+        <svg
+          width="25"
+          height="25"
+          viewBox="0 0 12 12"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg">
+          <path
+            d="M9.8637 10.2235C9.6358 9.58564 9.13362 9.02197 8.43505 8.61994C7.73647 8.21791 6.88054 8 6 8C5.11946 8 4.26353 8.21791 3.56496 8.61994C2.86638 9.02197 2.3642 9.58564 2.1363 10.2235"
+            stroke="black"
+            strokeLinecap="round"
+          />
+          <circle cx="6" cy="4" r="2" stroke="black" strokeLinecap="round" />
+        </svg>
+      );
+    case "lock":
+      return (
+        <svg
+          fill="#000000"
+          height="25"
+          width="25"
+          version="1.1"
+          id="Layer_1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink"
+          viewBox="0 0 330 330"
+          xml:space="preserve">
+          <g id="XMLID_486_">
+            <path
+              id="XMLID_487_"
+              d="M165,330c63.411,0,115-51.589,115-115c0-29.771-11.373-56.936-30-77.379V85c0-46.869-38.131-85-85-85
+		S80.001,38.131,80.001,85v52.619C61.373,158.064,50,185.229,50,215C50,278.411,101.589,330,165,330z M180,219.986V240
+		c0,8.284-6.716,15-15,15s-15-6.716-15-15v-20.014c-6.068-4.565-10-11.824-10-19.986c0-13.785,11.215-25,25-25s25,11.215,25,25
+		C190,208.162,186.068,215.421,180,219.986z M110.001,85c0-30.327,24.673-55,54.999-55c30.327,0,55,24.673,55,55v29.029
+		C203.652,105.088,184.91,100,165,100c-19.909,0-38.651,5.088-54.999,14.028V85z"
+            />
+          </g>
+        </svg>
+      );
+    case "email":
+      return (
+        <svg
+          width="25"
+          height="25"
+          viewBox="0 -2.5 20 20"
+          version="1.1"
+          xmlns="http://www.w3.org/2000/svg"
+          xmlns:xlink="http://www.w3.org/1999/xlink">
+          <title>email [#1573]</title>
+          <desc>Created with Sketch.</desc>
+          <defs></defs>
+          <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+            <g
+              id="Dribbble-Light-Preview"
+              transform="translate(-300.000000, -922.000000)"
+              fill="#000000">
+              <g id="icons" transform="translate(56.000000, 160.000000)">
+                <path
+                  d="M262,764.291 L254,771.318 L246,764.281 L246,764 L262,764 L262,764.291 Z M246,775 L246,766.945 L254,773.98 L262,766.953 L262,775 L246,775 Z M244,777 L264,777 L264,762 L244,762 L244,777 Z"
+                  id="email-[#1573]"></path>
+              </g>
+            </g>
+          </g>
         </svg>
       );
     default:

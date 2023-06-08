@@ -1,6 +1,6 @@
 import { useState } from "react";
 import global from "../global";
-import Icons from "../assets/Icons";
+import Icons from "../components/Icons";
 import "../styles/account.css";
 
 function Account() {
