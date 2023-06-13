@@ -5,8 +5,10 @@ import Chip from "../components/Chip";
 import Card from "../components/Card";
 import BikePreView from "../components/BikePreView";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Bike() {
+  const navigate = useNavigate()
   const [bikePreView, setBikePreView] = useState(null);
   const [bikes, setBikes] = useState([]);
   const [categorys, setCategorys] = useState([]);
@@ -34,6 +36,7 @@ function Bike() {
   function handlePreviewClick(bike) {
     console.log("clicking on preview");
     setBikePreView(null);
+    navigate("/card", {state: bike})
   }
 
   function handleChipClick(text) {

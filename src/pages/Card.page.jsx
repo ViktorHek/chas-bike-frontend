@@ -2,9 +2,19 @@ import "../styles/card.css";
 import { useState, useEffect } from "react";
 import axios from "axios";
 import Button from "../components/Button";
+import { useLocation, useNavigate } from "react-router-dom";
 
 function Card() {
+  const location = useLocation()
+  const navigate = useNavigate()
+  let price = "£££"
+
+  if(location.state) {
+    price = location.state.priceRange.maxPrice.amount
+  }
+
   const [user, setUser] = useState(null);
+  const [displayConfimation, setDisplayConfimation] = useState(false);
   const [cal, setCal] = useState(new Date().toLocaleDateString());
 
   useEffect(() => {
@@ -18,16 +28,20 @@ function Card() {
   };
 
   function changeCal(val) {
-    console.log({ val });
-    setCal(val);
-  }
-
-  function handleSubmit() {
-    console.log("elllll");
+    setCal(val.target.value);
   }
 
   return (
     <div className="main-card-conatiner">
+      {displayConfimation ? (
+        <div className="confirmaion-container center">
+          <img src="/Bike 1.jpg" alt="sorry :("/>
+          <div className="confirmation-box">
+            <span onClick={() => setDisplayConfimation(!displayConfimation)}>x</span>
+            <p>Yore bike is now booked!</p>
+          </div>
+        </div>
+      ):null}
       <div className="card-header">
         <div className="card-inner-header">
           <span>Payment</span>
@@ -48,14 +62,14 @@ function Card() {
         </div>
         <div className="card-price-container">
           <span>Total</span>
-          <span>£££</span>
+          <span>{price}</span>
         </div>
         <div className="card-buttons-container">
           <div className="card-button-container">
-            <Button text={"Cancel"} color={"white"} />
+            <Button text={"Cancel"} color={"white"} handleClick={() => navigate("/bike")} />
           </div>          
           <div className="card-button-container">
-            <Button text={"pay"} />
+            <Button text={"pay"} handleClick={() => setDisplayConfimation(!displayConfimation)} />
           </div>          
         </div>
       </div>

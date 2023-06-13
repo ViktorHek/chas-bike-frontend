@@ -1,10 +1,23 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import global from "../global";
 import Icons from "../components/Icons";
 import "../styles/account.css";
 
 function Account() {
   const [displayGifts, setDisplayGifts] = useState(false);
+  const [user, setUser] = useState(null)
+
+  const backupImg = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjH9ymD5drOzVeQ9qNi-AKLnf_HO6NCG8jyQ&usqp=CAU"
+
+  useEffect(() => {
+    populateUser()
+  },[])
+
+  const populateUser = async () => {
+    let responce = await axios.get("/user");
+    let user = responce.data;
+    setUser(user);
+  };
 
   function handleClick() {
     setDisplayGifts(!displayGifts);
@@ -20,9 +33,6 @@ function Account() {
       {displayGifts && (
         <div className="main-gifts-display-container">
           <div className="gifts-circle-container">
-            {/* <span className="main-circle">
-              <span className="progression-circle"></span>
-            </span> */}
             <div style={{height: '200px', width: '200px', display: 'flex', justifyContent: 'center', alignItems: 'center'}}>
               <img src={circleImg} alt="circle" style={{maxHeight: '100%', maxWidth: '100%'}}/>
             </div>
@@ -46,7 +56,7 @@ function Account() {
         <span>Hi, {global.testUser.name}!</span>
         <div className="account-header-img-conatiner">
           <img
-            src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSjH9ymD5drOzVeQ9qNi-AKLnf_HO6NCG8jyQ&usqp=CAU"
+            src={user ? user.imgUrl : backupImg}
             alt="profile"
           />
         </div>
@@ -63,7 +73,7 @@ function Account() {
         </div>
         <div className="account-outer-stat-container">
           <div className="account-stats-icon-container">
-            <Icons type={"hollowBike"} color={"black"} opacity={1} />
+            <Icons type={"bike"} color={"black"} opacity={1} />
           </div>
           <div className="account-inner-stat-container">
             <span>{global.testUser.rides}</span>
