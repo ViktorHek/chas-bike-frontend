@@ -80,7 +80,7 @@ function Home() {
         <img src="/home-bg.png" alt="sorry :(" className="home-backgrond-img" />
         {!openRegister && !openLogin ? (
           <>
-            <span className="home-wellcome-text">Wellcome Biker!</span>
+            <span className="home-wellcome-text" onClick={() => navigate("/bike")}>Wellcome Biker!</span>
             <div className="home-button-container">
               <Button
                 text={"Sign in"}

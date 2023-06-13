@@ -17,8 +17,10 @@ function Button({ handleClick, disabled, color, size, type, text }) {
     );
   } else {
     return (
-      <button onClick={() => handleClickButton()} className="primary-button">
-        {useText}
+      <button
+        onClick={() => handleClickButton()}
+        className={` ${color === "white" ? "primary-button-white" : "primary-button"} center `}>
+        <span className="center">{useText}</span>
       </button>
     );
   }

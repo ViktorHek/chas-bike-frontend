@@ -10,7 +10,6 @@ function Bike() {
   const [bikePreView, setBikePreView] = useState(null);
   const [bikes, setBikes] = useState([]);
   const [categorys, setCategorys] = useState([]);
-  const types = ["tour", "city", "hybrid", "Trailor"];
 
   useEffect(() => {
     populateBikes();
@@ -18,15 +17,17 @@ function Bike() {
 
   const populateBikes = async () => {
     let responce = await axios.get("/bikes/all");
-    let bikes = responce.data.bikes
-    setBikes(bikes)
-    let categorys = bikes.map((el) => {return el.category})
-    let uniqueCategorys = categorys.filter((value, index, array) => array.indexOf(value) === index)
-    setCategorys(uniqueCategorys)
+    let bikes = responce.data;
+    setBikes(bikes);
+    let categorys = bikes.map((el) => {
+      return el.category;
+    });
+    let uniqueCategorys = categorys.filter((value, index, array) => array.indexOf(value) === index);
+    setCategorys(uniqueCategorys);
   };
 
   function handleCardClick(id) {
-    let selectedBike = bikes.filter((el) => el.id === id)
+    let selectedBike = bikes.filter((el) => el.id === id);
     setBikePreView(selectedBike[0]);
   }
 
@@ -35,8 +36,8 @@ function Bike() {
     setBikePreView(null);
   }
 
-  function handleChipClick() {
-    console.log('hello')
+  function handleChipClick(text) {
+    console.log("hello", text);
   }
 
   return (
@@ -49,12 +50,13 @@ function Bike() {
         <div className="header-img-container">
           <img src={global.testUser.imgUrl} alt="profilePic" />
         </div>
-      </div>
-      <div className="type-selector-container">
-        <div className="inner-type-selector-container">
-          {categorys.length && categorys.map((el) => {
-            return <Chip text={el} key={el} onClick={() => handleChipClick()} />;
-          })}
+        <div className="type-selector-container">
+          <div className="inner-type-selector-container">
+            {categorys.length &&
+              categorys.map((el) => {
+                return <Chip text={el} key={el} handleClick={(text) =>handleChipClick(text)} />;
+              })}
+          </div>
         </div>
       </div>
       <div className="bike-card-container">
@@ -65,9 +67,7 @@ function Bike() {
             })}
         </div>
       </div>
-      {bikePreView ? (
-        <BikePreView bike={bikePreView} handleClick={handlePreviewClick} />
-      ) : null}
+      {bikePreView ? <BikePreView bike={bikePreView} handleClick={handlePreviewClick} /> : null}
     </div>
   );
 }
